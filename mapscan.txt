@@ -1,0 +1,48 @@
+
+a. Mapping (Network Discovery)
+
+Nmap -PR -sn Host/n (ARP Ping Scan - Find local hosts fast)
+
+Nmap -PE -sn Host (ICMP Echo Ping Scan - Standard ping)
+
+Nmap -PA80 -sn Host (TCP ACK Ping Scan on port 80)
+
+nmap -sL Host (List Scan - Identify targets via DNS, no actual probe)
+
+Nmap -iL iplist.txt (Input targets from a file named iplist.txt)
+
+Nmap -P 22 -iL iplist.txt (TCP SYN Ping on port 22 for hosts in file)
+
+Sudo nmap -sA -iL iplist.txt (TCP ACK Scan on hosts in file - Firewall rule mapping)
+
+sudo nmap host --spoof-mac o (Scan host, spoof MAC to Cisco)
+
+b. Scanning (Investigating Hosts)
+
+nmap -O -V host (OS Detection and Verbose output for a single host)
+
+Sudo nmap -sV -iL iplist.txt (Service Version Detection for hosts in file)
+
+Sudo nmap -O -iL iplist.txt (OS Detection for hosts in file)
+
+sudo nmap host -f (Scan host using fragmented packets - Evasion)
+
+nmap -iL iplist.txt --script vuln (Run vulnerability scripts on hosts in file)
+
+sudo nmap -sV -P21-8080 --script vulners Host (Version detection on ports 21-8080, check Vulners DB)
+
+nmap -script vulscan (Run Vulscan script library against targets)
+
+nmap -vulners -sV host (Check Vulners DB based on Service Version for a host)
+
+nmap -p- 192.168.1.0/24 (Scan all TCP ports on the subnet)
+
+nmap -sT 192.168.1.0 (TCP Connect Scan on the subnet)
+
+nmap -sS 192.168.1.0 (TCP SYN (Stealth) Scan on the subnet)
+
+nmap -sA 192.168.1.0 (TCP ACK Scan on the subnet - Firewall mapping)
+
+nmap -sV 192.168.1.10 (Service Version Detection on a specific host)
+
+nmap -O 192.168.1.10 (Operating System Detection on a specific host)
