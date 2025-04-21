@@ -1,0 +1,74 @@
+Experiment 3: Vulnerability Scanning (OpenVAS/GVM)
+
+Aim: Install and use GVM/OpenVAS to scan a target for vulnerabilities.
+
+Tool: Greenbone Vulnerability Management (GVM) on Kali Linux.
+
+Prerequisites: Kali Linux, sudo/root access, stable internet, sufficient RAM/disk space.
+
+Installation & Setup (Kali Terminal):
+
+Update System:
+sudo apt update && sudo apt upgrade -y
+
+Install GVM:
+sudo apt install gvm -y
+
+Run Setup (LONG PROCESS):
+sudo gvm-setup
+(CRITICAL: Save the admin password shown at the end!)
+
+Check Setup (Repeat until OK):
+sudo gvm-check-setup
+(Follow any instructions it gives)
+
+Start GVM Services:
+sudo gvm-start
+
+Using the Web Interface (GSA):
+
+Access URL: Open Firefox IN KALI and go to: https://127.0.0.1:9392
+
+Accept Security Warning: Click Advanced -> Accept Risk and Continue.
+
+Login:
+
+Username: admin
+
+Password: The one saved during gvm-setup.
+
+Running a Scan:
+
+Create Target:
+
+Go to Configuration -> Targets -> New Target icon.
+
+Enter Name (e.g., "My Scan Target").
+
+Enter Hosts (target IP address, e.g., Metasploitable's IP or 127.0.0.1).
+
+Save.
+
+Create & Run Task:
+
+Go to Scans -> Tasks -> New Task icon.
+
+Enter Name (e.g., "Scan My Target").
+
+Select the Scan Target you created.
+
+Choose Scan Config (e.g., "Full and fast").
+
+Save.
+
+Find the task in the list and click the green "Play" (►) icon to start.
+
+Results:
+
+Monitor scan progress on the Tasks page.
+
+When "Done", click the date under "Last Report" to view vulnerabilities by severity.
+
+Stop GVM (Optional):
+
+In terminal: sudo gvm-stop

